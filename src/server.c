@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:16:04 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/07 21:45:33 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/07 22:13:59 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 
 int	main(void)
 {
-	pid_t pid;
-
-	pid = getpid();
-	ft_printf("Server PID: %d\n", pid);
+	ft_printf("Server PID: %d\n", getpid());
 	while (1)
 		pause();	
 	return (0);
