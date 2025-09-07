@@ -1,26 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 20:16:04 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/07 21:45:33 by agiedroi         ###   ########.fr       */
+/*   Created: 2025/09/07 21:11:45 by agiedroi          #+#    #+#             */
+/*   Updated: 2025/09/07 21:12:20 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "server.h"
-#include "libft.h"
-
-int	main(void)
-{
-	pid_t pid;
-
-	pid = getpid();
-	ft_printf("Server PID: %d\n", pid);
-	while (1)
-		pause();	
-	return (0);
-}
+#ifndef SERVER_H
+# define SERVER_H
+#endif
