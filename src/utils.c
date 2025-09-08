@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:05:05 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 16:47:19 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 17:13:36 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ void	signal_wrapper(int signum, void *handler, int use_siginfo)
 	sigaddset(&act.sa_mask, SIGUSR1);
 	sigaddset(&act.sa_mask, SIGUSR2);
 	if (sigaction(signum, &act, NULL) < 0)
+	{
+		write(STDERR_FILENO, "sigaction error\n", 16);
 		exit(EXIT_FAILURE);
+	}
 }
