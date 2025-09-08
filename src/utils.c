@@ -6,9 +6,11 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:05:05 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 16:25:22 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 16:36:11 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "minitalk.h"
 
 void	signal_wrapper(int signum, void *handler, int use_siginfo)
 {
