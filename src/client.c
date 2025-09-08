@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 17:09:41 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 17:18:43 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int	main(int argc, char *argv[])
 		write(STDERR_FILENO, "Usage: ./client <server_PID> <string>\n", 38);
 		return (EXIT_FAILURE);
 	}
+	server = ft_atoi(argv[1]);
+	string = argv[2];
 	return (EXIT_SUCCESS);
 }
