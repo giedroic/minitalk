@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 18:12:14 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 18:18:38 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	send_byte(char byte, pid_t pid);
 
 int	main(int argc, char *argv[])
 {
-	pid_t	server;
+	pid_t	server_pid;
 	char	*string;
 
 	if (argc != 3)
@@ -24,10 +24,10 @@ int	main(int argc, char *argv[])
 		write(STDERR_FILENO, "Usage: ./client <server_PID> <string>\n", 38);
 		return (EXIT_FAILURE);
 	}
-	server = ft_atoi(argv[1]);
+	server_pid = ft_atoi(argv[1]);
 	string = argv[2];
 	while (*string != '\0')
-		send_byte(*string++, server);
+		send_byte(*string++, server_pid);
 	return (EXIT_SUCCESS);
 }
 
