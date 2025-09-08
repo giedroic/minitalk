@@ -13,15 +13,18 @@ SOURCES = server.c client.c utils.c
 OBJECTS = $(SOURCES:%.c=%.o)
 OBJECTS := $(addprefix obj/,$(OBJECTS))
 
-NAME = server
+NAME = server client
 NAME := $(addprefix bin/,$(NAME))
 
 .PHONY : all libft clean fclean re
 
 all : libft $(NAME)
 
-$(NAME) : $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@ $(LDLIBS)
+bin/server: $(SERVER_OBJ)	
+	$(CC) $(SERVER_OBJ) $(LDFLAGS) -o $@ $(LDLIBS)
+
+bin/client: $(CLIENT_OBJ)
+	$(CC) $(CLIENT_OBJ) $(LDFLAGS) -o $@ $(LDLIBS)
 
 obj/%.o : src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
