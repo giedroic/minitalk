@@ -6,13 +6,13 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 20:22:24 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:22:50 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-volatile sig_atomic_t g_ack_server;
+volatile sig_atomic_t g_server;
 void	ack_handler(int signum);
 void	send_byte(char byte, pid_t pid);
 
