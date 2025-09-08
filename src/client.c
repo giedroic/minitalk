@@ -6,12 +6,14 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 18:21:48 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:21:17 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+volatile sig_atomic_t g_ack_server;
+void	ack_handler(int signum);
 void	send_byte(char byte, pid_t pid);
 
 int	main(int argc, char *argv[])
@@ -26,6 +28,7 @@ int	main(int argc, char *argv[])
 	}
 	server_pid = ft_atoi(argv[1]);
 	string = argv[2];
+	signal_wrapper(SIGUSR1, ack_handler, 0);
 	while (*string != '\0')
 		send_byte(*string++, server_pid);
 	send_byte('\0', server_pid);
