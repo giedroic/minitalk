@@ -6,14 +6,15 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:05:05 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 15:53:05 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 16:00:47 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	Signal(int sig, void *handler, int use_siginfo)
+void	signal_wrapper(int sig, void *handler, int use_siginfo)
 {
 	struct sigaction	act;
 
+	act = {0};
 	if (use_siginfo)
 	{
 		act.sa_flags = SA_SIGINFO;
@@ -21,4 +22,5 @@ void	Signal(int sig, void *handler, int use_siginfo)
 	}
 	else
 		act.sa_handler = signal_handler;
+	
 }
