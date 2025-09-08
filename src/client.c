@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 18:04:03 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 18:09:58 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,15 @@ int	main(int argc, char *argv[])
 
 void	send_byte(char byte, pid_t pid);
 {
-	
+	int	bit_pos;
+
+	bit_pos = 0;
+	while (bit_pos < CHAR_BIT)
+	{
+		if (byte & (0b10000000))
+			kill_wraper(pid, SIGUSR1);
+		else
+			kill_wraper(pid, SIGUSR2);
+		++bit_pos;
+	}
 }
