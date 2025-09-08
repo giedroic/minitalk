@@ -6,11 +6,20 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:05:05 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 17:13:36 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 17:51:17 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	kill_wraper(pid_t pid, int sig)
+{
+	if (kill(pid, sig) < 0)
+	{
+		write(STDERR_FILENO, "kill error\n", 11);
+		exit(EXIT_FAILURE);
+	}
+}
 
 void	signal_wrapper(int signum, void *handler, int use_siginfo)
 {
