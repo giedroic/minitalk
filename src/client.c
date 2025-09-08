@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 20:37:01 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:47:12 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ int	main(int argc, char *argv[])
 
 void	ack_handler(int signum)
 {
+	(void) signum;
 	g_server = READY;
 }
 
 void	end_handler(int signum)
 {
+	(void) signum;
 	write(STDOUT_FILENO, "String received!\n", 17);
 	exit (EXIT_SUCCESS);
 }
@@ -60,5 +62,8 @@ void	send_byte(char byte, pid_t pid)
 		else
 			kill_wraper(pid, SIGUSR2);
 		++bit_pos;
+		while (g_server == BUSY)
+			pause();
+		g_server = BUSY;
 	}
 }
