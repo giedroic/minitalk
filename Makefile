@@ -8,7 +8,7 @@ LDFLAGS = -L libft
 
 LDLIBS = -l ft
 
-SOURCES = server.c 
+SOURCES = server.c utils.c
 
 OBJECTS = $(SOURCES:%.c=%.o)
 OBJECTS := $(addprefix obj/,$(OBJECTS))
