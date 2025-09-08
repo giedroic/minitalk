@@ -6,18 +6,16 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:16:04 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/07 23:29:07 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 13:20:14 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "server.h"
+#include "minitalk.h"
 
 static void	signal_handler(int signum);
 
 int	main(void)
 {
-	struct sigaction action;
-
 	
 	ft_printf("Server PID: %d\n", getpid());
 	
