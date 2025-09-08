@@ -8,13 +8,16 @@ LDFLAGS = -L libft
 
 LDLIBS = -l ft
 
-SOURCES = server.c client.c utils.c
-
-OBJECTS = $(SOURCES:%.c=%.o)
-OBJECTS := $(addprefix obj/,$(OBJECTS))
-
 NAME = server client
 NAME := $(addprefix bin/,$(NAME))
+
+SERVER_SRC = server.c
+CLIENT_SRC = client.c
+UTILS_SRC = utils.c
+
+UTILS_OBJ = $(addprefix obj/, $(UTILS_SRC:%.c=%.o))
+SERVER_OBJ = $(addprefix obj/, $(SERVER_SRC:%.c=%.o)) $(UTILS_OBJ)
+CLIENT_OBJ = $(addprefix obj/, $(CLIENT_SRC:%.c=%.o)) $(UTILS_OBJ)
 
 .PHONY : all libft clean fclean re
 
