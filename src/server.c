@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:16:04 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 18:50:31 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 18:54:10 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	handler(int signum, siginfo_t *info, void *ucontext)
 		if (byte == '\0')
 		{
 			write(STDOUT_FILENO, "\n", 1);
-			kill_wraper(info->si_signo, SIGUSR2);
+			kill_wraper(info->si_sipid, SIGUSR2);
 			return ;
 		}
 		byte = 0;
