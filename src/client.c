@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 18:09:58 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 18:12:14 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int argc, char *argv[])
 	}
 	server = ft_atoi(argv[1]);
 	string = argv[2];
+	while (*string != '\0')
+		send_byte(*string++, server);
 	return (EXIT_SUCCESS);
 }
 
