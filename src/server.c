@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:16:04 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 18:24:43 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 18:40:23 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,8 @@ void	handler(int signum, siginfo_t *info, void *ucontext)
 	(void) ucontext;
 	static char	byte;
 	static int	bit_pos;
+
+	if (signum == SIGUSR1)
+		byte = byte | ((0b10000000) >> bit_pos); 
+	++bit_pos;
 }
