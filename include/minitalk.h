@@ -6,12 +6,13 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 21:11:45 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 16:15:32 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 17:27:38 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERVER_H
 # define SERVER_H
+# define BYTE 8
 # include <signal.h>
 # include <stdlib.h>
 # include <unistd.h>
