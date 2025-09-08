@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 20:21:17 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:22:24 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ int	main(int argc, char *argv[])
 	send_byte('\0', server_pid);
 	return (EXIT_SUCCESS);
 }
+
+void	ack_handler(int signum)
+{
+	
+}	
 
 void	send_byte(char byte, pid_t pid)
 {
