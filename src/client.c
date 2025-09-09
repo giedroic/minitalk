@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:21:20 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 20:47:12 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/09 22:25:52 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	send_byte(char byte, pid_t pid)
 	bit_pos = 0;
 	while (bit_pos < CHAR_BIT)
 	{
-		if (byte & (0b10000000))
+		if (byte & 128 >> bit_pos)
 			kill_wraper(pid, SIGUSR1);
 		else
 			kill_wraper(pid, SIGUSR2);
