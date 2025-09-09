@@ -4,6 +4,8 @@ CFLAGS = -Wall -Wextra -Werror -I include
 
 ARFLAGS = rcs
 
+RMDIR = rm -rf
+
 LIBC = ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint \
 	ft_strlen ft_toupper ft_tolower ft_strchr ft_strrchr \
 	ft_strncmp ft_calloc ft_strdup ft_atoi ft_memchr ft_memcmp \
@@ -22,6 +24,8 @@ FT_PRINTF = ft_printf ft_printf_utils
 
 GET_NEXT_LINE = get_next_line
 
+OBJ_DIR = obj/
+
 OBJECT = $(LIBC) $(ADDITIONAL) $(BONUS) $(FT_PRINTF) $(GET_NEXT_LINE)
 OBJECT := $(addprefix obj/,$(OBJECT))
 OBJECT := $(addsuffix .o,$(OBJECT))
@@ -36,16 +40,21 @@ NAME = libft.a
 
 all : $(NAME)
 
-$(NAME) : $(OBJECT)
+$(NAME) : $(OBJ_DIR) $(OBJECT)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJECT)
 
 obj/%.o : src/%.c $(INCLUDE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_DIR) :
+	mkdir -p $@
+
 clean :
 	$(RM) $(OBJECT)
+	$(RMDIR) $(OBJ_DIR)
 
 fclean :
 	$(RM) $(NAME) $(OBJECT)
+	$(RMDIR) $(OBJ_DIR)
 
 re : fclean all
