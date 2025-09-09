@@ -50,7 +50,7 @@ $(BIN_DIR) :
 clean :
 	$(MAKE) -C libft clean
 	$(RM) $(UTILS_OBJ) $(SERVER_OBJ) $(CLIENT_OBJ)
-	$(RMDIR) $(OBJ_DIR) $(BIN_DIR)
+	$(RMDIR) $(OBJ_DIR)
 
 fclean :
 	$(MAKE) -C libft fclean
