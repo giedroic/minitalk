@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:16:04 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/09 22:50:20 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/09 22:54:32 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	handler(int signum, siginfo_t *info, void *ucontext)
 {
 	static char	byte;
 	static int	bit_pos;
-	static pid_t	client_pid:
+	static pid_t	client_pid;
 
 	(void) ucontext;
 	if (info->si_pid)
