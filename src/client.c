@@ -63,7 +63,7 @@ void	send_byte(char byte, pid_t pid)
 			kill_wraper(pid, SIGUSR2);
 		++bit_pos;
 		while (g_server == BUSY)
-			pause();
+			usleep(100);
 		g_server = BUSY;
 	}
 }
