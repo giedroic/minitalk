@@ -11,6 +11,9 @@ LDLIBS = -l ft
 NAME = server client
 NAME := $(addprefix bin/,$(NAME))
 
+BIN_DIR = bin/
+OBJ_DIR = obj/
+
 SERVER_SRC = server.c
 CLIENT_SRC = client.c
 UTILS_SRC = utils.c
