@@ -2,7 +2,7 @@
 #        Makefile for minitalk
 # ======================================
 
-CFLAGS = -Wall -Wextra -Werror -I include -I libft/include
+CFLAGS = -Wall -Wextra -Werror -g -I include -I libft/include
 
 LDFLAGS = -L libft
 
@@ -37,10 +37,10 @@ libft :
 
 clean :
 	$(MAKE) -C libft clean
-	$(RM) $(OBJECTS)
+	$(RM) $(UTILS_OBJ) $(SERVER_OBJ) $(CLIENT_OBJ)
 
 fclean :
 	$(MAKE) -C libft fclean
-	$(RM) $(OBJECTS) $(NAME)
+	$(RM) $(UTILS_OBJ) $(SERVER_OBJ) $(CLIENT_OBJ) $(NAME)
 
 re : fclean all
