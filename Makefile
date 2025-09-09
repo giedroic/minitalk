@@ -9,7 +9,6 @@ LDFLAGS = -L libft
 LDLIBS = -l ft
 
 MKDIR = mkdir -p
-
 RMDIR = rm -rf
 
 NAME = server client
