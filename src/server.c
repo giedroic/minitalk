@@ -6,7 +6,7 @@
 /*   By: agiedroi <agiedroi@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 20:16:04 by agiedroi          #+#    #+#             */
-/*   Updated: 2025/09/08 20:50:05 by agiedroi         ###   ########.fr       */
+/*   Updated: 2025/09/08 21:54:23 by agiedroi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	handler(int signum, siginfo_t *info, void *ucontext)
 			kill_wraper(info->si_pid, SIGUSR2);
 			return ;
 		}
-		byte = 0;
 		write(STDOUT_FILENO, &byte, 1);
+		byte = 0;
 	}
 	kill_wraper(info->si_pid, SIGUSR1);
 }
