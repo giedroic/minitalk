@@ -28,7 +28,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	server_pid = ft_atoi(argv[1]);
-	string = argv[2];
+	message = argv[2];
 	signal_wrapper(SIGUSR1, ack_handler, 0);
 	signal_wrapper(SIGUSR2, end_handler, 0);
 	while (*message != '\0')
