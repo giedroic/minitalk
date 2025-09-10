@@ -28,6 +28,11 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 	server_pid = ft_atoi(argv[1]);
+	if (server_pid < 0)
+	{
+		write(STDERR_FILENO, "invalid pid\n", 12);
+		return (EXIT_FAILURE);
+	}
 	message = argv[2];
 	signal_wrapper(SIGUSR1, ack_handler, 0);
 	signal_wrapper(SIGUSR2, end_handler, 0);
