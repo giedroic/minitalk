@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, "Usage: ./client <server_PID> <message>\n", 38);
+		write(STDERR_FILENO, "Usage: ./client <server_PID> <message>\n", 39);
 		return (EXIT_FAILURE);
 	}
 	server_pid = ft_atoi(argv[1]);
@@ -46,7 +46,7 @@ void	ack_handler(int signum)
 void	end_handler(int signum)
 {
 	(void) signum;
-	write(STDOUT_FILENO, "Message received!\n", 17);
+	write(STDOUT_FILENO, "Message received!\n", 18);
 	exit (EXIT_SUCCESS);
 }
 
