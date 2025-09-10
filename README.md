@@ -138,7 +138,7 @@ Hello 🌍!
 
 Client output:
 ```
-Message successfully received by server.
+Message received!
 ```
 
 ---
