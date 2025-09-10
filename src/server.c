@@ -26,8 +26,8 @@ int	main(void)
 
 void	handler(int signum, siginfo_t *info, void *ucontext)
 {
-	static char	byte;
-	static int	bit_pos;
+	static char		byte;
+	static int		bit_pos;
 	static pid_t	client_pid;
 
 	(void) ucontext;
