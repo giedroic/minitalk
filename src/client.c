@@ -20,19 +20,19 @@ void	send_byte(char byte, pid_t pid);
 int	main(int argc, char *argv[])
 {
 	pid_t	server_pid;
-	char	*string;
+	char	*message;
 
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, "Usage: ./client <server_PID> <string>\n", 38);
+		write(STDERR_FILENO, "Usage: ./client <server_PID> <message>\n", 38);
 		return (EXIT_FAILURE);
 	}
 	server_pid = ft_atoi(argv[1]);
 	string = argv[2];
 	signal_wrapper(SIGUSR1, ack_handler, 0);
 	signal_wrapper(SIGUSR2, end_handler, 0);
-	while (*string != '\0')
-		send_byte(*string++, server_pid);
+	while (*message != '\0')
+		send_byte(*message++, server_pid);
 	send_byte('\0', server_pid);
 	return (EXIT_SUCCESS);
 }
@@ -46,7 +46,7 @@ void	ack_handler(int signum)
 void	end_handler(int signum)
 {
 	(void) signum;
-	write(STDOUT_FILENO, "String received!\n", 17);
+	write(STDOUT_FILENO, "Message received!\n", 17);
 	exit (EXIT_SUCCESS);
 }
 
