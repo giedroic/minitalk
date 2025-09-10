@@ -8,6 +8,7 @@ A simple client–server communication program written in C using UNIX signals.
 
 - The **server** waits for incoming messages via signals.
 - The **client** sends messages to the server using `SIGUSR1` and `SIGUSR2` signals.
+- The **client_bonus** version supports message confirmation and Unicode characters.
 
 This showcases low-level IPC using only signals—no sockets or external libraries.
 
@@ -19,6 +20,9 @@ This showcases low-level IPC using only signals—no sockets or external librari
 - **Efficient bitwise protocol**: Messages are sent bit by bit via signals.
 - **Supports multiple clients**: The server can handle consecutive messages without restarting.
 - **Simple and fast**: Designed to be responsive and lightweight.
+- **Bonus Features**:
+  - Message confirmation upon successful receipt by the server.
+  - Full Unicode character support.
 
 ---
 
@@ -29,9 +33,10 @@ minitalk/
 ├── include/        # Header files (e.g., minitalk.h)
 ├── libft/          # Custom library for utility functions
 ├── src/
-│   ├── client.c    # Client implementation
-│   └── server.c    # Server implementation
-└── Makefile        # Build configuration
+│   ├── client.c        # Client implementation
+│   ├── client_bonus.c  # Client with confirmation and Unicode support
+│   └── server.c        # Server implementation
+└── Makefile            # Build configuration
 ```
 
 ---
@@ -85,7 +90,13 @@ minitalk/
    ./client 12345 "Hello, Minitalk!"
    ```
 
-3. The server terminal will reconstruct and print the message.
+3. **Use the bonus client** for message confirmation and Unicode support
+
+   ```bash
+   ./client_bonus <server_pid> "Your message with Unicode 👍"
+   ```
+
+4. The server terminal will reconstruct and print the message, and the bonus client will print confirmation upon successful receipt.
 
 ---
 
@@ -94,16 +105,18 @@ minitalk/
 ### Communication Protocol
 
 - Each character is sent bit by bit:
-
   - `0` is signaled via `SIGUSR1`
   - `1` is signaled via `SIGUSR2`
 
 - The server collects bits, rebuilding characters once 8 bits are received.
+- Bonus client waits for server acknowledgment after the full message.
 
 ### Reliability & Flow
 
 - Clients pass the server’s PID as an argument.
 - The server prints its PID on startup and can handle multiple messages consecutively.
+- Bonus client prints a confirmation message once the server has received the full message.
+- Unicode characters are supported for both sending and receiving.
 
 ---
 
@@ -115,13 +128,17 @@ $ ./server
 Server PID: 23456
 
 # Terminal 2:
-$ ./client 23456 "Hello, world!"
+$ ./client_bonus 23456 "Hello 🌍!"
 ```
 
-Then, on the server terminal:
-
+Server output:
 ```
-Hello, world!
+Hello 🌍!
+```
+
+Client output:
+```
+Message successfully received by server.
 ```
 
 ---
