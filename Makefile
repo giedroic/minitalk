@@ -1,7 +1,6 @@
 # ======================================
 #        Makefile for minitalk
 # ======================================
-
 CFLAGS = -Wall -Wextra -Werror -g -I include -I libft/include
 
 LDFLAGS = -L libft
@@ -29,9 +28,9 @@ SERVER_BONUS_SRC = server_bonus.c
 CLIENT_BONUS_SRC = client_bonus.c
 UTILS_BONUS_SRC = utils_bonus.c
 
-UTILS_BONUS_OBJ = $(addprefix obj/, $(UTILS_SRC:%.c=%.o))
-SERVER_BONUS_OBJ = $(addprefix obj/, $(SERVER_SRC:%.c=%.o)) $(UTILS_BONUS_OBJ)
-CLIENT_BONUS_OBJ = $(addprefix obj/, $(CLIENT_SRC:%.c=%.o)) $(UTILS_BONUS_OBJ)
+UTILS_BONUS_OBJ = $(addprefix obj/, $(UTILS_BONUS_SRC:%.c=%.o))
+SERVER_BONUS_OBJ = $(addprefix obj/, $(SERVER_BONUS_SRC:%.c=%.o)) $(UTILS_BONUS_OBJ)
+CLIENT_BONUS_OBJ = $(addprefix obj/, $(CLIENT_BONUS_SRC:%.c=%.o)) $(UTILS_BONUS_OBJ)
 
 .PHONY : all libft bonus clean fclean re
 
@@ -55,9 +54,9 @@ $(OBJ_DIR) :
 $(BIN_DIR) :
 	$(MKDIR) $@
 
-bonus :	
-	$(CC) $(SERVER_OBJ) $(LDFLAGS) -o bin/server_bonus $(LDLIBS)
-	$(CC) $(SERVER_OBJ) $(LDFLAGS) -o bin/client_bonus $(LDLIBS)
+bonus :	$(SERVER_BONUS_OBJ) $(CLIENT_BONUS_OBJ)
+	$(CC) $(SERVER_BONUS_OBJ) $(LDFLAGS) -o bin/server_bonus $(LDLIBS)
+	$(CC) $(CLIENT_BONUS_OBJ) $(LDFLAGS) -o bin/client_bonus $(LDLIBS)
 
 clean :
 	$(MAKE) -C libft clean
