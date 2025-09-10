@@ -25,7 +25,7 @@ UTILS_OBJ = $(addprefix obj/, $(UTILS_SRC:%.c=%.o))
 SERVER_OBJ = $(addprefix obj/, $(SERVER_SRC:%.c=%.o)) $(UTILS_OBJ)
 CLIENT_OBJ = $(addprefix obj/, $(CLIENT_SRC:%.c=%.o)) $(UTILS_OBJ)
 
-.PHONY : all libft clean fclean re
+.PHONY : all libft bonus clean fclean re
 
 all : libft $(OBJ_DIR) $(BIN_DIR) $(NAME)
 
@@ -46,6 +46,10 @@ $(OBJ_DIR) :
 
 $(BIN_DIR) :
 	$(MKDIR) $@
+
+bonus :	
+	$(CC) $(SERVER_OBJ) $(LDFLAGS) -o bin/server_bonus $(LDLIBS)
+	$(CC) $(SERVER_OBJ) $(LDFLAGS) -o bin/client_bonus $(LDLIBS)
 
 clean :
 	$(MAKE) -C libft clean
