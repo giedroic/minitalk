@@ -46,7 +46,6 @@ void	ack_handler(int signum)
 void	end_handler(int signum)
 {
 	(void) signum;
-	write(STDOUT_FILENO, "Message received!\n", 17);
 	exit (EXIT_SUCCESS);
 }
 
