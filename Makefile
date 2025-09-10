@@ -54,7 +54,7 @@ $(OBJ_DIR) :
 $(BIN_DIR) :
 	$(MKDIR) $@
 
-bonus :	$(SERVER_BONUS_OBJ) $(CLIENT_BONUS_OBJ)
+bonus :	libft $(OBJ_DIR) $(BIN_DIR) $(SERVER_BONUS_OBJ) $(CLIENT_BONUS_OBJ)
 	$(CC) $(SERVER_BONUS_OBJ) $(LDFLAGS) -o bin/server_bonus $(LDLIBS)
 	$(CC) $(CLIENT_BONUS_OBJ) $(LDFLAGS) -o bin/client_bonus $(LDLIBS)
 
