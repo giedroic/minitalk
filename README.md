@@ -1,4 +1,4 @@
-# Minitalk
+# minitalk
 
 A simple client–server communication program written in C using UNIX signals.
 
